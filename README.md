@@ -181,8 +181,8 @@ Where:
 
 ### Key Metrics
 
-- **City CMI**: City-level material intensity compared to UMIC baseline
-- **Neighborhood Multiplier**: Neighborhood deviation from city mean
+- **City CMI**: City-level city-mass-index compared to UMIC baseline
+- **Neighborhood Relative CMI**: Neighborhood deviation from city mean
 - **Mismatch Detection**: Statistical identification of outliers
 
 ## 🎯 Outputs
@@ -275,8 +275,8 @@ If you use this code or methodology, please cite:
 ```bibtex
 @software{china_city_mass_index_2024,
   title={China City Mass Index Interactive Map},
-  author={[Author Names]},
-  year={2024},
+  author={Kangning Huang},
+  year={2025},
   url={https://github.com/[username]/china-city-mass-index-map}
 }
 ```
@@ -300,7 +300,7 @@ Contributions are welcome! Please:
 For questions or issues, please:
 
 - Open a GitHub issue
-- Contact: [contact email]
+- Contact: kh3657@nyu.edu
 
 ---
 
