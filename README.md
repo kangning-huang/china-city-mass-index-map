@@ -1,6 +1,6 @@
 # China City Mass Index Map
 
-This repository contains the complete, reproducible pipeline for generating the China City Mass Index (CMI) interactive map. The map visualizes neighborhood-level material intensity variations within Chinese cities compared to global Upper Middle Income Countries (UMIC).
+This repository contains the complete, reproducible pipeline for generating the China City Mass Index (CMI) interactive map. The map visualizes city- and neighborhood-level material intensity variations of Chinese cities compared to global cities in Upper Middle Income Countries (UMIC).
 
 ## 🗺️ Interactive Map
 
