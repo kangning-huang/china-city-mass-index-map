@@ -4,7 +4,7 @@ This repository contains the complete, reproducible pipeline for generating the 
 
 ## 🗺️ Interactive Map
 
-The live map is available at: **[GitHub Pages URL]**
+The live map is available at: **https://kangning-huang.github.io/china-city-mass-index-map/**
 
 ## 📋 Overview
 
