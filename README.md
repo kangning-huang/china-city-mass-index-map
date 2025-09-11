@@ -122,30 +122,41 @@ china-city-mass-index-map/
 ├── run_pipeline.py                    # Main execution script
 ├── requirements.txt                   # Python dependencies
 ├── environment.yml                    # Conda environment
+├── index.html                         # Final interactive map
 ├── config/
 │   ├── settings.py                    # Configuration parameters
 │   └── country_classification.csv     # World Bank income classifications
 ├── scripts/
-│   ├── 01_create_h3_neighborhoods.py  # H3 grid generation
-│   ├── 02_extract_building_data.py    # Building data extraction
-│   ├── 03_extract_road_data.py        # Road data extraction
-│   ├── [... additional scripts ...]   # Other pipeline steps
+│   ├── 01_create_h3_neighborhoods.py  # H3 hexagonal grid generation
+│   ├── 02_extract_building_data.py    # Building volume data extraction from GEE
+│   ├── 03_extract_road_data.py        # Road network data extraction from GEE
+│   ├── 04_merge_infrastructure_data.py # Merge building and road datasets
+│   ├── 05_calculate_material_masses.py # Calculate material masses from volumes
+│   ├── 06_generate_city_boundaries.py # Generate city boundary geometries
+│   ├── 07_hierarchical_mismatch_analysis.py # Statistical analysis and CMI calculation
+│   ├── 08_create_interactive_map.py    # Generate final interactive visualization
 │   └── utils/
+│       ├── __init__.py                # Package initialization
 │       ├── gee_utils.py               # Google Earth Engine utilities
 │       ├── spatial_utils.py           # Spatial processing functions
-│       ├── material_intensity_utils.py # Material calculations
-│       └── visualization_utils.py      # Map generation utilities
+│       ├── material_intensity_utils.py # Material calculation utilities
+│       └── visualization_utils.py      # Map generation and styling utilities
 ├── data/
-│   ├── raw/                          # Input data (user provided)
+│   ├── raw/                          # Input datasets
+│   │   ├── ChinaAdminProvince_compressed.gpkg # China administrative boundaries
+│   │   └── GHS_STAT_UCDB2015MT_GLOBE_R2019A_V1_1.gpkg # Global urban centres
 │   └── processed/                    # Generated intermediate files
+│       ├── boundaries/               # City and neighborhood boundaries
+│       ├── neighborhood_data/        # H3-level extracted data
+│       └── merged_data/              # Combined datasets
 ├── results/
-│   ├── statistics/                   # Analysis results
-│   └── maps/                        # Generated maps
+│   ├── statistics/                   # Statistical analysis outputs
+│   └── maps/                        # Generated map files
 ├── docs/
-│   ├── methodology.md               # Detailed methodology
-│   ├── data_sources.md              # Data source documentation
+│   ├── methodology.md               # Detailed statistical methodology
+│   ├── data_sources.md              # Complete data source documentation
 │   └── troubleshooting.md           # Common issues and solutions
-└── index.html                       # Final interactive map
+└── [Generated outputs]               # Pipeline creates additional files as needed
 ```
 
 ## 📈 Data Sources
