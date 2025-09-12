@@ -58,10 +58,25 @@ def generate_h3_grids(
         
         # Add city information if not already present
         city_cols = ['ID_HDC_G0', 'UC_NM_MN', 'CTR_MN_ISO', 'CTR_MN_NM', 'GRGN_L1', 'GRGN_L2']
-        for col in city_cols:
-            if col in city_gdf.columns and col not in h3_grids.columns:
-                # Spatial join to add city information
-                h3_grids = gpd.sjoin(h3_grids, city_gdf[['geometry', col]], how='left', predicate='intersects')
+        
+        # Get available city columns
+        available_city_cols = [col for col in city_cols if col in city_gdf.columns and col not in h3_grids.columns]
+        
+        if available_city_cols:
+            # Clean up any existing index columns that might conflict
+            if 'index_right' in h3_grids.columns:
+                h3_grids = h3_grids.drop(columns=['index_right'])
+            
+            # Prepare city data for join
+            join_cols = ['geometry'] + available_city_cols
+            city_join_data = city_gdf[join_cols].copy().reset_index(drop=True)
+            
+            # Spatial join to add city information
+            h3_grids = gpd.sjoin(h3_grids, city_join_data, how='left', predicate='intersects')
+            
+            # Clean up join artifacts
+            if 'index_right' in h3_grids.columns:
+                h3_grids = h3_grids.drop(columns=['index_right'])
         
         # Create unique neighborhood identifier
         if 'ID_HDC_G0' in h3_grids.columns:
